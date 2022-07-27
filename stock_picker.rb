@@ -3,11 +3,9 @@ def stock_picker (prices)
   best_buy = prices[0]
   profit = 0
 
-  prices.each_with_index do|price, index|
-    prices.each_with_index do|pricex, indexx|
-      if indexx <= index
-        next
-      end
+  prices.each_with_index do|price, index| #index and price for outer loop
+    prices.each_with_index do|pricex, indexx| #indexx and pricex for inner loop
+      if indexx <= index then next end
       if (pricex-price) > profit
         profit = pricex - price
         best_sell = pricex
@@ -16,9 +14,8 @@ def stock_picker (prices)
       end
     end
 
-puts best_sell
-puts best_buy
-end
+print [best_buy,best_sell]
 
+end
 
 stock_picker([11,10,6,19,15,12,6,20,1])
